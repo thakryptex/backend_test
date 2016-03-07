@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend Test Parsing URLs</title>
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>Backend Test Task</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6" id="left">
+                <h1> First text area </h1>
+                <ul id="left_ul">
+                    {% for url in urls %}
+                        <li id="left_{{ url.id }}">
+                            &lt;Дата: {% if url.time != None %} {{url.time|date:'Y-m-d H:i:s'}} {% else %} ****-**-** **:**:** {% endif %}&gt;:
+                            {{ url.url }},
+                            {% if url.success %} success {% else %} error {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!--<textarea class="col-md-6" id="left">-->
+                <!--First text area-->
+            <!--</textarea>-->
+
+            <div class="col-md-6" id="right">
+                <h1>Second text area</h1>
+                <ul id="right_ul">
+                    {% for url in urls %}
+                        <li id="right_{{ url.id }}">{{ url.url }} - {{ url.title }}, {{ url.h1 }}, {{ url.charset }}.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="row" id="button">
+            <button class="btn parse">Parse</button>
+            <h3>Press "Parse" to start parsing your sites.</h3>
+        </div>
+    </div>
+
+</body>
+</html>

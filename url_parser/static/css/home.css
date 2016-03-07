@@ -1,0 +1,21 @@
+body {
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #eeeeee;
+}
+
+h1 {
+    font-family: 'Passion One';
+}
+
+#left {
+    background: #31b0d5;
+}
+
+#right {
+    background: #46b8da;
+}
+
+#button {
+    background: #c0c0c0;
+}
