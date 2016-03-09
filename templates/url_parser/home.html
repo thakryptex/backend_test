@@ -25,7 +25,7 @@
                 <ul id="left_ul">
                     {% for url in urls %}
                         <li id="left_{{ url.id }}">
-                            &lt;Дата: {% if url.time != None %} {{url.time|date:'Y-m-d H:i:s'}} {% else %} ****-**-** **:**:** {% endif %}&gt;:
+                            &lt;<b>Дата {% if url.time != None %} {{url.time|date:'Y-m-d H:i:s'}} {% else %} ****-**-** **:**:** {% endif %}&gt;:</b>
                             {{ url.url }},
                             {% if url.success %} success {% else %} error {% endif %}
                         </li>
@@ -33,15 +33,14 @@
                 </ul>
             </div>
 
-            <!--<textarea class="col-md-6" id="left">-->
-                <!--First text area-->
-            <!--</textarea>-->
-
             <div class="col-md-6" id="right">
                 <h1>Second text area</h1>
                 <ul id="right_ul">
                     {% for url in urls %}
-                        <li id="right_{{ url.id }}">{{ url.url }} - {{ url.title }}, {{ url.h1 }}, {{ url.charset }}.</li>
+                        <li id="right_{{ url.id }}"><b>{{ url.url }}</b> -
+                            {% if url.title != "" or url.h1 != "" or url.charset != "" %} {{ url.title }}, {{ url.h1 }}, {{url.charset}}
+                            {% else %}&lt;empty&gt;
+                            {% endif %}.</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -52,6 +51,7 @@
             <button class="btn parse">Parse</button>
             <h3>Press "Parse" to start parsing your sites.</h3>
         </div>
+
     </div>
 
 </body>

@@ -4,6 +4,14 @@ body {
     background: #eeeeee;
 }
 
+.page-header {
+    background: #e2e2e2;
+}
+
+.container {
+
+}
+
 h1 {
     font-family: 'Passion One';
 }

@@ -1,6 +1,6 @@
 import re
 import json
-import datetime
+from datetime import datetime
 from .models import UrlAdminModel as Model
 from django.http import Http404, HttpResponse
 
@@ -21,7 +21,7 @@ def parse(request):
             try:
                 parsed = parse_url(url['url'])
             except URLError:
-                parsed = {'success': False, 'time': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+                parsed = {'success': False, 'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             url.update(parsed)
             start_new_thread(update_db, (url,))
 
@@ -31,9 +31,16 @@ def parse(request):
         raise Http404
 
 
+def refresh(request):
+    if request.is_ajax():
+        pass
+    else:
+        raise Http404
+
+
 def parse_url(url):
-    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    html = str(urlopen(url).read().decode('utf-8', 'ignore'))
+    time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    html = str(urlopen(url, timeout=3).read().decode('utf-8', 'ignore'))
     title = re.findall(r'<title>(.*?)</title>', html)
     h1 = re.findall(r'<h1>(.*?)</h1>', html)
     charset = re.findall(r'<meta.*charset=(.*?)[" ]', html)
