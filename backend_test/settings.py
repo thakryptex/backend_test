@@ -27,6 +27,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+"""
+    uncomment this when get ready to production, hide SECRET_KEY and set DEBUG to False
+"""
+# CSRF_COOKIE_HTTPONLY = True
+# CSRF_COOKIE_SECURE = True
+# X_FRAME_OPTIONS = 'DENY'
+# SESSION_COOKIE_SECURE = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# SECURE_BROWSER_XSS_FILTER = True
+
 
 # Application definition
 
