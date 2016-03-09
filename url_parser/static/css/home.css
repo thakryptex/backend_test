@@ -1,29 +1,13 @@
 body {
-    padding-left: 15px;
-    padding-right: 15px;
-    background: #eeeeee;
-}
-
-.page-header {
     background: #e2e2e2;
-}
-
-.container {
-
 }
 
 h1 {
     font-family: 'Passion One';
 }
 
-#left {
-    background: #31b0d5;
-}
-
-#right {
-    background: #46b8da;
-}
-
-#button {
-    background: #c0c0c0;
+.parse {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #7CA0C7;
+    font-weight: bold;
 }

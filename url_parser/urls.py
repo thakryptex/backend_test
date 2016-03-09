@@ -4,6 +4,6 @@ from . import parser
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    url(r'^ajax/parse/$', parser.parse),
+    url(r'^ajax/start/$', parser.start),
     url(r'^ajax/refresh/$', parser.refresh),
 ]

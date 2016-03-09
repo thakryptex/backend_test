@@ -21,7 +21,7 @@
         <div class="row">
 
             <div class="col-md-6" id="left">
-                <h1> First text area </h1>
+                <h1>URL's list</h1>
                 <ul id="left_ul">
                     {% for url in urls %}
                         <li id="left_{{ url.id }}">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-md-6" id="right">
-                <h1>Second text area</h1>
+                <h1>Parsing result</h1>
                 <ul id="right_ul">
                     {% for url in urls %}
                         <li id="right_{{ url.id }}"><b>{{ url.url }}</b> -
