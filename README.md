@@ -1,6 +1,8 @@
 # Backend Test
 Текст задания - Backend_Test.pdf
 
+Ответ по заданиям - Backend_Answers.pdf
+
 Проверено на версиях Python:
 * python 3.5.1
 * python 2.7.11
