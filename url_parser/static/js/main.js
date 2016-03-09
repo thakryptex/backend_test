@@ -11,6 +11,7 @@ $(document).ready(function() {
                 refresh();
             },
             error: function(error) {
+                parsingDone();
             }
         });
     }
@@ -37,9 +38,16 @@ $(document).ready(function() {
                 setInterval(refresh(), 1000);
             },
             error: function(error) {
-                $('.parse').after('<b style="color:green; margin-left:20px" >Parsing is done.</b>')
+                parsingDone();
             }
         });
+    }
+
+    /**
+     *  writes 'parsing is done' when it's done
+     */
+    function parsingDone() {
+        $('.parse').after('<b style="color:green; margin-left:20px" >Parsing is done.</b>')
     }
 
     /**

@@ -23,10 +23,13 @@ threads = []  # list of threads
 # initialize parsing process
 def start(request):
     if request.is_ajax():
+        data = Model.objects.filter(success=False).order_by('timeshift').values()
+
+        if data.is_empty():
+            raise Http404
+
         global parsing
         parsing = True
-
-        data = Model.objects.filter(success=False).order_by('timeshift').values()
 
         # transfer to dictionary where key = 'timeshift', value = 'url', like this: {1: [urls], 2: [urls], 3: [urls]}
         timeshifts = {d['timeshift']: [a['url'] for a in data if a['timeshift'] == d['timeshift']] for d in data}
