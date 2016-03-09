@@ -1,8 +1,8 @@
 Backend Test
 ===============
-Текст задания - Backend_Test.pdf
+Текст задания - [Backend Test](https://github.com/thakryptex/backend_test/blob/master/Backend_Test.pdf)
 
-Ответ по заданиям - Backend_Answers.pdf
+Ответ по заданиям - [Backend Answers](https://github.com/thakryptex/backend_test/blob/master/Backend_Answers.pdf)
 
 ### Проверено на версиях Python:
 * python 3.5.1
@@ -22,4 +22,13 @@ Backend Test
 
 6. Запустить: `python manage.py runserver`
 
-7. Перейти на `localhost:8000`
+7. Перейти на `localhost:8000`, нажать кнопку 'Parse'
+
+
+### Доп. инфо:
+* Используются только базовые библиотеки помимо Django
+* Код проверен на python 3.5.1 и python 2.7.11
+* Парсинг запускается по нажатию кнопки
+* Парсинг сайтов запускается согласно временному сдвигу (timeshift)
+* Результат парсинга отображается сразу как информация получена с пропарсенного сайта
+* Используется ajax, поскольку в django очень проблемно с websocket’ами
